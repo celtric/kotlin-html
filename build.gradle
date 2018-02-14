@@ -1,5 +1,6 @@
 buildscript {
-    ext.kotlin_version = '1.2.21'
+    ext.kotlin_version = "1.2.21"
+    ext.junit_version = "5.0.3"
 
     repositories {
         mavenCentral()
@@ -9,10 +10,10 @@ buildscript {
     }
 }
 
-group 'org.celtric.kotlin'
-version '0.0.1'
+group "org.celtric.kotlin"
+version "0.0.1"
 
-apply plugin: 'kotlin'
+apply plugin: "kotlin"
 
 repositories {
     mavenCentral()
@@ -20,6 +21,9 @@ repositories {
 
 dependencies {
     compile "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
+
+    testCompile "org.junit.jupiter:junit-jupiter-api:$junit_version"
+    testRuntime "org.junit.jupiter:junit-jupiter-engine:$junit_version"
 }
 
 compileKotlin {

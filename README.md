@@ -24,7 +24,7 @@ will render the following HTML:
 
 ### Composability
 
-You can join any number elements:
+You can join any number of elements:
 
 ```html
 p("First paragraph") + p("Second paragraph")

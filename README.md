@@ -1,5 +1,6 @@
 ![](https://img.shields.io/circleci/project/github/celtric/kotlin-html.svg)
 ![](https://img.shields.io/github/license/celtric/kotlin-html.svg)
+[ ![Download](https://api.bintray.com/packages/celtric/maven/kotlin-html/images/download.svg) ](https://bintray.com/celtric/maven/kotlin-html/_latestVersion)
 
 # kotlin-html
 
@@ -140,7 +141,3 @@ HTML:
     </body>
 </html>
 ```
-
-## Installation
-
-TODO

@@ -56,7 +56,7 @@ HTML:
 
 ### Attributes
 
-Attributes are optional. If you wish to define them, you must use a block:
+Attributes are optional. If you wish to define them, you must use a block for the content:
 
 ```kotlin
 p("A paragraph") // Text-only element, cannot contain attributes

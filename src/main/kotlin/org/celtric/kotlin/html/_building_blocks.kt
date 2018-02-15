@@ -29,7 +29,7 @@ class DocumentType(val type: String) : Node() {
 }
 
 class Text(val content: String) : Node() {
-    override fun render(opt: Options) = content
+    override fun render(opt: Options) = opt.indent() + content
     override fun isBlock() = false
 }
 
@@ -65,7 +65,7 @@ class Element(val name: String, val _isBlock: Boolean, val content: Any, val att
 
 class EmptyElement(val name: String, val _isBlock: Boolean, val attributes: AllAttributes? = null) : Node() {
     override fun render(opt: Options) =
-            "${opt.indent()}<$name${attributes?.render()}>" + if (isBlock()) opt.lineSeparator else ""
+            "${opt.indent()}<$name${attributes?.render()?:""}>" + if (isBlock()) opt.lineSeparator else ""
     override fun isBlock() = _isBlock
 }
 
@@ -76,7 +76,10 @@ private class NodeList(val nodes: List<Node>) : Node() {
     override fun isBlock() = nodes.any { it.isBlock() }
 }
 
-fun List<Node>.render(opt: Options = Options()) = joinToString("") { it.render(opt) }
+fun List<Node>.render(opt: Options = Options()) = joinToString("") {
+    it.render(opt) + if (it is Text && any { it.isBlock() }) "\n" else ""
+}
+
 operator fun List<Node>.plus(text: String): List<Node> = plus(Text(text))
 // TODO: can the call to the overloaded plus operator be delegated without this casting hack?
 @Suppress("UNCHECKED_CAST")

@@ -21,4 +21,18 @@ internal class TextTest {
         p(text("A text")).assertRenders("<p>A text</p>\n")
         p(text("A") + " " + "text").assertRenders("<p>A text</p>\n")
     }
+
+    @Test fun indented_text_with_inline_elements() {
+        p(text("First") + text("Second")).assertRenders("<p>FirstSecond</p>\n")
+    }
+
+    @Test fun indented_text_with_block_elements() {
+        p(text("First") + br() + text("Second")).assertRendersMultiline("""
+            <p>
+                First
+                <br>
+                Second
+            </p>
+        """)
+    }
 }

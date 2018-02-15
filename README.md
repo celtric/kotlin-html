@@ -98,6 +98,8 @@ strong("foo") + "bar" // Valid Kotlin, as the native string is not the first ele
 ## Full example
 
 ```kotlin
+import org.celtric.kotlin.html.*
+
 doctype("html") + html {
     head {
         title("Document title") +

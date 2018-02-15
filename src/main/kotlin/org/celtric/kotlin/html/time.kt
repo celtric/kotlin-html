@@ -1,12 +1,8 @@
 package org.celtric.kotlin.html
 
-fun button(
+fun time(
     // Optional
-    type: String? = null,
-    name: String? = null,
-    value: String? = null,
-    disabled: Boolean = false,
-    autofocus: Boolean = false,
+    datetime: String? = null,
 
     // Global
     css: String? = null,
@@ -19,13 +15,13 @@ fun button(
 
     // Content
     content: () -> Any
-) = InlineElement("button", content(), AllAttributes(mapOf(
-    "type" to type,
-    "name" to name,
-    "value" to value,
-    "disabled" to disabled,
-    "autofocus" to autofocus,
+) = InlineElement("time", content(), AllAttributes(mapOf(
+    "datetime" to datetime,
     "class" to css,
     "id" to id,
     "title" to title
 ), other, data))
+
+fun time(content: String) = time { content }
+fun time(content: Node) = time { content }
+fun time(content: List<Node>) = time { content }

@@ -1,12 +1,9 @@
 package org.celtric.kotlin.html
 
-fun button(
+fun output(
     // Optional
-    type: String? = null,
     name: String? = null,
-    value: String? = null,
-    disabled: Boolean = false,
-    autofocus: Boolean = false,
+    `for`: String? = null,
 
     // Global
     css: String? = null,
@@ -19,13 +16,14 @@ fun button(
 
     // Content
     content: () -> Any
-) = InlineElement("button", content(), AllAttributes(mapOf(
-    "type" to type,
+) = InlineElement("output", content(), AllAttributes(mapOf(
     "name" to name,
-    "value" to value,
-    "disabled" to disabled,
-    "autofocus" to autofocus,
+    "for" to `for`,
     "class" to css,
     "id" to id,
     "title" to title
 ), other, data))
+
+fun output(content: String) = output { content }
+fun output(content: Node) = output { content }
+fun output(content: List<Node>) = output { content }

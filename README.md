@@ -1,5 +1,6 @@
 ![](https://img.shields.io/circleci/project/github/celtric/kotlin-html.svg)
 ![](https://img.shields.io/github/license/celtric/kotlin-html.svg)
+[ ![Download](https://api.bintray.com/packages/celtric/maven/kotlin-html/images/download.svg) ](https://bintray.com/celtric/maven/kotlin-html/_latestVersion)
 
 # kotlin-html
 
@@ -23,7 +24,7 @@ will render the following HTML:
 
 ### Composability
 
-You can join any number elements:
+You can join any number of elements:
 
 ```html
 p("First paragraph") + p("Second paragraph")
@@ -97,6 +98,8 @@ strong("foo") + "bar" // Valid Kotlin, as the native string is not the first ele
 ## Full example
 
 ```kotlin
+import org.celtric.kotlin.html.*
+
 doctype("html") + html {
     head {
         title("Document title") +
@@ -140,7 +143,3 @@ HTML:
     </body>
 </html>
 ```
-
-## Installation
-
-TODO

@@ -3,10 +3,12 @@ buildscript {
     ext.junit_version = "5.0.3"
 
     repositories {
-        mavenCentral()
+        jcenter()
     }
+
     dependencies {
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        classpath "com.jfrog.bintray.gradle:gradle-bintray-plugin:1.7"
     }
 }
 
@@ -14,9 +16,11 @@ group "org.celtric.kotlin"
 version "0.0.1"
 
 apply plugin: "kotlin"
+apply plugin: "maven-publish"
+apply plugin: "com.jfrog.bintray"
 
 repositories {
-    mavenCentral()
+    jcenter()
 }
 
 dependencies {
@@ -26,9 +30,38 @@ dependencies {
     testRuntime "org.junit.jupiter:junit-jupiter-engine:$junit_version"
 }
 
-compileKotlin {
-    kotlinOptions.jvmTarget = "1.8"
+compileKotlin     { kotlinOptions.jvmTarget = "1.8" }
+compileTestKotlin { kotlinOptions.jvmTarget = "1.8" }
+
+task sourcesJar(type: Jar, dependsOn: classes) {
+    classifier = "sources"
+    from sourceSets.main.allSource
 }
-compileTestKotlin {
-    kotlinOptions.jvmTarget = "1.8"
+
+artifacts {
+    archives sourcesJar
+}
+
+publishing {
+    publications {
+        mavenPublication(MavenPublication) {
+            from components.java
+            artifact sourcesJar
+        }
+    }
+}
+
+bintray {
+    user = project.hasProperty("bintray.user") ? project.property("bintray.user") : null
+    key = project.hasProperty("bintray.apikey") ? project.property("bintray.apikey") : null
+    publications = ["mavenPublication"]
+
+    pkg {
+        repo = "maven"
+        name = "kotlin-html"
+
+        version {
+            attributes = ["gradle-plugin": "com.use.less:com.use.less.gradle:gradle-useless-plugin"]
+        }
+    }
 }

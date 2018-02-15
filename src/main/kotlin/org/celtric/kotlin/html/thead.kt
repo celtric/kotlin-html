@@ -11,7 +11,7 @@ fun thead(
 
     // Content
     content: () -> Any
-) = Element("thead", true, content(), AllAttributes(mapOf(
+) = BlockElement("thead", content(), AllAttributes(mapOf(
     "class" to css,
     "id" to id
 ), other, data))

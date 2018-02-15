@@ -11,7 +11,7 @@ fun tfoot(
 
     // Content
     content: () -> Any
-) = Element("tfoot", true, content(), AllAttributes(mapOf(
+) = BlockElement("tfoot", content(), AllAttributes(mapOf(
     "class" to css,
     "id" to id
 ), other, data))

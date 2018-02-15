@@ -15,7 +15,7 @@ fun html(
 
     // Content
     content: () -> Any
-) = Element("html", true, content(), AllAttributes(mapOf(
+) = BlockElement("html", content(), AllAttributes(mapOf(
     "xmlns" to xmlns,
     "class" to css,
     "dir" to dir,

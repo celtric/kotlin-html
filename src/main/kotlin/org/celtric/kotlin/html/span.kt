@@ -12,7 +12,7 @@ fun span(
 
     // Content
     content: () -> Any
-) = Element("span", false, content(), AllAttributes(mapOf(
+) = InlineElement("span", content(), AllAttributes(mapOf(
     "class" to css,
     "id" to id,
     "title" to title

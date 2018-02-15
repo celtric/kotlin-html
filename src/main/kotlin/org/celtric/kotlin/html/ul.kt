@@ -11,7 +11,7 @@ fun ul(
 
     // Mandatory
     content: () -> Any
-) = Element("ul", true, content(), AllAttributes(mapOf(
+) = BlockElement("ul", content(), AllAttributes(mapOf(
     "class" to css,
     "id" to id
 ), other, data))

@@ -16,7 +16,7 @@ fun th(
 
     // Content
     content: () -> Any
-) = Element("th", true, content(), AllAttributes(mapOf(
+) = BlockElement("th", content(), AllAttributes(mapOf(
     "colspan" to colspan?.toString(),
     "rowspan" to rowspan?.toString(),
     "class" to css,

@@ -16,7 +16,7 @@ fun td(
 
     // Content
     content: () -> Any
-) = Element("td", true, content(), AllAttributes(mapOf(
+) = BlockElement("td", content(), AllAttributes(mapOf(
     "colspan" to colspan?.toString(),
     "rowspan" to rowspan?.toString(),
     "class" to css,

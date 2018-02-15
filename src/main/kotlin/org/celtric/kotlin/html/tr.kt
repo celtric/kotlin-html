@@ -12,7 +12,7 @@ fun tr(
 
     // Content
     content: () -> Any
-) = Element("tr", true, content(), AllAttributes(mapOf(
+) = BlockElement("tr", content(), AllAttributes(mapOf(
     "class" to css,
     "id" to id,
     "title" to title

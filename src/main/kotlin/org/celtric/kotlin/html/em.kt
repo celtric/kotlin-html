@@ -12,7 +12,7 @@ fun em(
 
     // Content
     content: () -> Any
-) = Element("em", false, content(), AllAttributes(mapOf(
+) = InlineElement("em", content(), AllAttributes(mapOf(
     "class" to css,
     "id" to id,
     "title" to title

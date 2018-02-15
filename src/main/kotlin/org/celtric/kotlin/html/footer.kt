@@ -11,7 +11,7 @@ fun footer(
 
     // Content
     content: () -> Any
-) = Element("footer", true, content(), AllAttributes(mapOf(
+) = BlockElement("footer", content(), AllAttributes(mapOf(
     "class" to css,
     "id" to id
 ), other, data))

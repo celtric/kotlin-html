@@ -14,7 +14,7 @@ fun li(
 
     // Content
     content: () -> Any
-) = Element("li", true, content(), AllAttributes(mapOf(
+) = BlockElement("li", content(), AllAttributes(mapOf(
     "value" to value,
     "class" to css,
     "id" to id

@@ -12,7 +12,7 @@ fun strong(
 
     // Content
     content: () -> Any
-) = Element("strong", false, content(), AllAttributes(mapOf(
+) = InlineElement("strong", content(), AllAttributes(mapOf(
     "class" to css,
     "id" to id,
     "title" to title

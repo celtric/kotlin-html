@@ -10,7 +10,7 @@ fun meta(
     // Custom
     other: Attributes = emptyMap(),
     data: Attributes = emptyMap()
-) = EmptyElement("meta", true, AllAttributes(mapOf(
+) = EmptyBlockElement("meta", AllAttributes(mapOf(
     "charset" to charset,
     "content" to content,
     "http-equiv" to httpEquiv,

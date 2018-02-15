@@ -138,6 +138,8 @@ strong("Strongly") + " disagree"
 p(strong("Strongly") + " disagree")
 ```
 
+HTML:
+
 ```html
 <strong>Strongly</strong> disagree
 <p><strong>Strongly</strong> disagree</p>

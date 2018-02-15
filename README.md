@@ -13,10 +13,10 @@ This library is heavily inspired by [kotlinx.html](https://github.com/Kotlin/kot
 You can define HTML elements independently from an HTML document. The following code:
 
 ```kotlin
-p("A paragraph").render()
+p("A paragraph")
 ```
 
-will render the following HTML:
+will render the following HTML when `.render()` is called:
 
 ```html
 <p>A paragraph</p>
@@ -26,7 +26,7 @@ will render the following HTML:
 
 You can join any number of elements:
 
-```html
+```kotlin
 p("First paragraph") + p("Second paragraph")
 ```
 

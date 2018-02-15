@@ -147,7 +147,6 @@ Due to a limitation in Kotlin's overloading capabilities, a native string cannot
 
 ```kotlin
 "foo" + strong("bar") // NOT allowed by Kotlin operator overloading
-
 text("foo") + strong("bar") // Valid Kotlin
 strong("foo") + "bar" // Valid Kotlin, as the native string is not the first element
 ```

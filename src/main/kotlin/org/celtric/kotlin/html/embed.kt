@@ -8,7 +8,7 @@ fun embed(
     height: Int,
 
     // Global
-    css: String? = null,
+    classes: String? = null,
     id: String? = null,
 
     // Custom
@@ -19,6 +19,6 @@ fun embed(
     "src" to src,
     "width" to width,
     "height" to height,
-    "class" to css,
+    "class" to classes,
     "id" to id
 ), other, data))

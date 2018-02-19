@@ -8,7 +8,7 @@ fun optgroup(
     disabled: Boolean = false,
 
     // Global
-    css: String? = null,
+    classes: String? = null,
     id: String? = null,
 
     // Custom
@@ -20,7 +20,7 @@ fun optgroup(
 ) = BlockElement("optgroup", content(), AllAttributes(mapOf(
     "label" to label,
     "disabled" to disabled,
-    "class" to css,
+    "class" to classes,
     "id" to id
 ), other, data))
 

@@ -5,7 +5,7 @@ fun dfn(
     title: String? = null,
 
     // Global
-    css: String? = null,
+    classes: String? = null,
     id: String? = null,
 
     // Custom
@@ -16,7 +16,7 @@ fun dfn(
     content: () -> Any
 ) = InlineElement("dfn", content(), AllAttributes(mapOf(
     "title" to title,
-    "class" to css,
+    "class" to classes,
     "id" to id
 ), other, data))
 

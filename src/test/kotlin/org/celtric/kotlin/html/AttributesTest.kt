@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test
 internal class AttributesTest {
 
     @Test fun global_attributes() {
-        span(css = "class1 class2", id = "unique-id", title = "A title") { "Content" }
+        span(classes = "class1 class2", id = "unique-id", title = "A title") { "Content" }
             .assertRenders("""<span class="class1 class2" id="unique-id" title="A title">Content</span>""")
     }
 

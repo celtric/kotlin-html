@@ -27,16 +27,13 @@ fun input(
     value: String? = null,
 
     // Global
-    css: String? = null,
+    classes: String? = null,
     id: String? = null,
     title: String? = null,
 
     // Custom
     other: Attributes = emptyMap(),
-    data: Attributes = emptyMap(),
-
-    // Content
-    content: () -> Any
+    data: Attributes = emptyMap()
 ) = EmptyBlockElement("input", AllAttributes(mapOf(
     "type" to type,
     "accept" to accept,
@@ -59,7 +56,7 @@ fun input(
     "size" to size,
     "step" to step,
     "value" to value,
-    "class" to css,
+    "class" to classes,
     "id" to id,
     "title" to title
 ), other, data))

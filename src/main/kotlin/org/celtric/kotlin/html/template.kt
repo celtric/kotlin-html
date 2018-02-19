@@ -2,7 +2,7 @@ package org.celtric.kotlin.html
 
 fun template(
     // Global
-    css: String? = null,
+    classes: String? = null,
     id: String? = null,
 
     // Custom
@@ -12,7 +12,7 @@ fun template(
     // Content
     content: () -> Any
 ) = BlockElement("template", content(), AllAttributes(mapOf(
-    "class" to css,
+    "class" to classes,
     "id" to id
 ), other, data))
 

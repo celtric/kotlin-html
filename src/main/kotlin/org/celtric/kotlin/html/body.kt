@@ -5,7 +5,7 @@ fun body(
     lang: String? = null,
 
     // Global
-    css: String? = null,
+    classes: String? = null,
 
     // Custom
     other: Attributes = emptyMap(),
@@ -14,7 +14,7 @@ fun body(
     // Content
     content: () -> Any
 ) = BlockElement("body", content(), AllAttributes(mapOf(
-    "class" to css,
+    "class" to classes,
     "lang" to lang
 ), other, data))
 

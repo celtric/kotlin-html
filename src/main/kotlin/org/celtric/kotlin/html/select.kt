@@ -10,7 +10,7 @@ fun select(
     size: Int? = null,
 
     // Global
-    css: String? = null,
+    classes: String? = null,
     id: String? = null,
 
     // Custom
@@ -26,6 +26,6 @@ fun select(
     "name" to name,
     "required" to required,
     "size" to size,
-    "class" to css,
+    "class" to classes,
     "id" to id
 ), other, data))

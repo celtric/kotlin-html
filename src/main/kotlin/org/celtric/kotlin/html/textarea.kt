@@ -16,7 +16,7 @@ fun textarea(
     wrap: String? = null,
 
     // Global
-    css: String? = null,
+    classes: String? = null,
     id: String? = null,
 
     // Custom
@@ -38,6 +38,6 @@ fun textarea(
     "rows" to rows,
     "spellcheck" to spellcheck,
     "wrap" to wrap,
-    "class" to css,
+    "class" to classes,
     "id" to id
 ), other, data))

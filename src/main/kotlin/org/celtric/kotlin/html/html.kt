@@ -5,7 +5,7 @@ fun html(
     xmlns: String? = null,
 
     // Global
-    css: String? = null,
+    classes: String? = null,
     dir: String? = null,
     lang: String? = null,
 
@@ -17,7 +17,7 @@ fun html(
     content: () -> Any
 ) = BlockElement("html", content(), AllAttributes(mapOf(
     "xmlns" to xmlns,
-    "class" to css,
+    "class" to classes,
     "dir" to dir,
     "lang" to lang
 ), other, data))

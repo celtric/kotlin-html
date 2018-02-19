@@ -5,7 +5,7 @@ fun label(
     `for`: String? = null,
 
     // Global
-    css: String? = null,
+    classes: String? = null,
     id: String? = null,
 
     // Custom
@@ -16,7 +16,7 @@ fun label(
     content: () -> Any
 ) = BlockElement("label", content(), AllAttributes(mapOf(
     "for" to `for`,
-    "class" to css,
+    "class" to classes,
     "id" to id
 ), other, data))
 

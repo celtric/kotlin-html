@@ -5,7 +5,7 @@ fun map(
     name: String? = null,
 
     // Global
-    css: String? = null,
+    classes: String? = null,
     id: String? = null,
 
     // Custom
@@ -16,7 +16,7 @@ fun map(
     content: () -> Any
 ) = BlockElement("map", content(), AllAttributes(mapOf(
     "name" to name,
-    "class" to css,
+    "class" to classes,
     "id" to id
 ), other, data))
 

@@ -5,7 +5,7 @@ fun bdi(
     dir: String? = null,
 
     // Global
-    css: String? = null,
+    classes: String? = null,
     id: String? = null,
     title: String? = null,
 
@@ -17,7 +17,7 @@ fun bdi(
     content: () -> Any
 ) = InlineElement("bdi", content(), AllAttributes(mapOf(
     "dir" to dir,
-    "class" to css,
+    "class" to classes,
     "id" to id,
     "title" to title
 ), other, data))

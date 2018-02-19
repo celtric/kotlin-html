@@ -8,7 +8,7 @@ fun option(
     disabled: Boolean = false,
 
     // Global
-    css: String? = null,
+    classes: String? = null,
     id: String? = null,
 
     // Custom
@@ -22,7 +22,7 @@ fun option(
     "label" to label,
     "selected" to selected,
     "disabled" to disabled,
-    "class" to css,
+    "class" to classes,
     "id" to id
 ), other, data))
 

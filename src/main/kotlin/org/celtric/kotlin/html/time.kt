@@ -5,7 +5,7 @@ fun time(
     datetime: String? = null,
 
     // Global
-    css: String? = null,
+    classes: String? = null,
     id: String? = null,
     title: String? = null,
 
@@ -17,7 +17,7 @@ fun time(
     content: () -> Any
 ) = InlineElement("time", content(), AllAttributes(mapOf(
     "datetime" to datetime,
-    "class" to css,
+    "class" to classes,
     "id" to id,
     "title" to title
 ), other, data))

@@ -13,9 +13,9 @@ internal class FullDocumentTest {
                 script(type = "text/javascript", src = "js/script.js")
             } +
             body {
-                div(css = "container") {
+                div(classes = "container") {
                     h1("A title") +
-                    p(css = "introduction") {
+                    p(classes = "introduction") {
                         "A paragraph"
                     } +
                     ul {

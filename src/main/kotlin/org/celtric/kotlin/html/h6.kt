@@ -2,7 +2,7 @@ package org.celtric.kotlin.html
 
 fun h6(
     // Global
-    css: String? = null,
+    classes: String? = null,
     id: String? = null,
 
     // Custom
@@ -12,7 +12,7 @@ fun h6(
     // Content
     content: () -> Any
 ) = BlockElement("h6", content(), AllAttributes(mapOf(
-    "class" to css,
+    "class" to classes,
     "id" to id
 ), other, data))
 

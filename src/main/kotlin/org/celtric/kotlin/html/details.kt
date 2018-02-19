@@ -5,7 +5,7 @@ fun details(
     open: Boolean = false,
 
     // Global
-    css: String? = null,
+    classes: String? = null,
     id: String? = null,
 
     // Custom
@@ -16,7 +16,7 @@ fun details(
     content: () -> Any
 ) = BlockElement("details", content(), AllAttributes(mapOf(
     "open" to open,
-    "class" to css,
+    "class" to classes,
     "id" to id
 ), other, data))
 

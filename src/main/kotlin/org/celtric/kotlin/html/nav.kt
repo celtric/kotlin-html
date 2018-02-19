@@ -2,7 +2,7 @@ package org.celtric.kotlin.html
 
 fun nav(
     // Global
-    css: String? = null,
+    classes: String? = null,
     id: String? = null,
 
     // Custom
@@ -12,7 +12,7 @@ fun nav(
     // Content
     content: () -> Any
 ) = BlockElement("nav", content(), AllAttributes(mapOf(
-    "class" to css,
+    "class" to classes,
     "id" to id
 ), other, data))
 

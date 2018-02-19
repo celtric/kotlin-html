@@ -6,7 +6,7 @@
 
 _kotlin-html_ is an experimental library to generate HTML in Kotlin.
 
-This library is heavily inspired by [kotlinx.html](https://github.com/Kotlin/kotlinx.html), but with a strong emphasis on composability.
+This library is heavily inspired by [kotlinx.html](https://github.com/Kotlin/kotlinx.html), but with a strong emphasis on context-independent composability.
 
 ## Getting started
 
@@ -21,6 +21,7 @@ will render the following HTML when `.render()` is called:
 ```html
 <p>A paragraph</p>
 ```
+_Note: all HTML examples in this README are generated after calling `.render()` on the expression presented in Kotlin. It's encouraged that you keep the number `.render()` calls to the minimum and instead combine elements to increase your code's expressiveness._
 
 ### Composability
 
@@ -163,7 +164,8 @@ fun main(args : Array<String>) {
         head {
             title("Document title") +
             meta(charset = "utf-8") +
-            link(href = "css/style.css", rel = "stylesheet")
+            link(href = "css/style.css", rel = "stylesheet") +
+            script(type = "text/javascript", src = "js/script.js")
         } +
         body {
             div(classes = "container") {
@@ -192,6 +194,7 @@ HTML:
         <title>Document title</title>
         <meta charset="utf-8">
         <link href="css/style.css" rel="stylesheet">
+        <script type="text/javascript" src="js/script.js"></script>
     </head>
     <body>
         <div class="container">

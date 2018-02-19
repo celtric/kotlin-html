@@ -9,7 +9,8 @@ internal class FullDocumentTest {
             head {
                 title("Document title") +
                 meta(charset = "utf-8") +
-                link(href = "css/style.css", rel = "stylesheet")
+                link(href = "css/style.css", rel = "stylesheet") +
+                script(type = "text/javascript", src = "js/script.js")
             } +
             body {
                 div(css = "container") {
@@ -30,6 +31,7 @@ internal class FullDocumentTest {
                     <title>Document title</title>
                     <meta charset="utf-8">
                     <link href="css/style.css" rel="stylesheet">
+                    <script type="text/javascript" src="js/script.js"></script>
                 </head>
                 <body>
                     <div class="container">

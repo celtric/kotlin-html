@@ -40,6 +40,7 @@ sealed class Element(val name: String, val _isBlock: Boolean, val content: Any, 
 
     override fun render(opt: Options): String {
         val renderableContent: Node = when {
+            content == Unit -> Text("")
             content is String -> Text(content)
             content is Node -> content
             (content is List<*> && content.first() is Node) -> @Suppress("UNCHECKED_CAST") NodeList(content as List<Node>)

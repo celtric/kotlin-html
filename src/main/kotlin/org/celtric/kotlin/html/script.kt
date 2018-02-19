@@ -17,7 +17,7 @@ fun script(
     data: Attributes = emptyMap(),
 
     // Content
-    content: () -> Any
+    content: () -> Any = {}
 ) = BlockElement("script", content(), AllAttributes(mapOf(
     "type" to type,
     "src" to src,

@@ -61,7 +61,7 @@ Working with functions is also straightforward:
 ```kotlin
 ul { numbers() }
 
-fun actors() = li("One") + li("Two") + li("Three")
+fun numbers() = li("One") + li("Two") + li("Three")
 ```
 
 HTML:

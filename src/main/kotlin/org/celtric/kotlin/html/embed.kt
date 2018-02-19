@@ -17,8 +17,8 @@ fun embed(
 ) = EmptyBlockElement("embed", AllAttributes(mapOf(
     "type" to type,
     "src" to src,
-    "width" to width.toString(),
-    "height" to height.toString(),
+    "width" to width,
+    "height" to height,
     "class" to css,
     "id" to id
 ), other, data))

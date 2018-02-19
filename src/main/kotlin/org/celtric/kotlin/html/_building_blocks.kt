@@ -98,7 +98,7 @@ operator fun List<Node>.plus(nodes: List<Node>): List<Node> = ((this as List<Any
 typealias Attributes = Map<String, Any?>
 
 private fun Attributes.renderAttributes(prefix: String = "") =
-        filter { it.value != null }
+        filter { it.value != null && it.value != false }
         .map { Pair(it.key, if (it.value is Boolean) "" else "=\"${it.value}\"") }
         .joinToString("") { (key, value) -> " " + prefix + key + value }
 

@@ -17,8 +17,8 @@ fun th(
     // Content
     content: () -> Any
 ) = BlockElement("th", content(), AllAttributes(mapOf(
-    "colspan" to colspan?.toString(),
-    "rowspan" to rowspan?.toString(),
+    "colspan" to colspan,
+    "rowspan" to rowspan,
     "class" to css,
     "id" to id,
     "title" to title

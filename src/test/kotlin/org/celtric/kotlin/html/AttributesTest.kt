@@ -20,7 +20,13 @@ internal class AttributesTest {
     }
 
     @Test fun boolean_attributes() {
+        span { "Content" }
+            .assertRenders("<span>Content</span>")
+
+        span(other = mapOf("foo" to false)) { "Content" }
+            .assertRenders("<span>Content</span>")
+
         span(other = mapOf("foo" to true)) { "Content" }
-                .assertRenders("<span foo>Content</span>")
+            .assertRenders("<span foo>Content</span>")
     }
 }

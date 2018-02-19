@@ -16,8 +16,8 @@ fun canvas(
     // Content
     content: () -> Any
 ) = BlockElement("canvas", content(), AllAttributes(mapOf(
-    "width" to width.toString(),
-    "height" to height.toString(),
+    "width" to width,
+    "height" to height,
     "class" to css,
     "id" to id
 ), other, data))

@@ -18,7 +18,7 @@ fun ol(
     content: () -> Any
 ) = BlockElement("ol", content(), AllAttributes(mapOf(
     "type" to type,
-    "start" to start.toString(),
+    "start" to start,
     "reversed" to reversed,
     "class" to css,
     "id" to id

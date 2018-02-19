@@ -1,6 +1,6 @@
-![](https://img.shields.io/circleci/project/github/celtric/kotlin-html.svg)
-![](https://img.shields.io/github/license/celtric/kotlin-html.svg)
-[ ![Download](https://api.bintray.com/packages/celtric/maven/kotlin-html/images/download.svg) ](https://bintray.com/celtric/maven/kotlin-html/_latestVersion)
+[![CircleCI](https://img.shields.io/circleci/project/github/celtric/kotlin-html.svg)](https://circleci.com/gh/celtric/kotlin-html)
+[![License](https://img.shields.io/github/license/celtric/kotlin-html.svg)](https://github.com/celtric/kotlin-html/blob/master/LICENSE)
+[![Download](https://api.bintray.com/packages/celtric/maven/kotlin-html/images/download.svg)](https://bintray.com/celtric/maven/kotlin-html/_latestVersion)
 
 # kotlin-html
 

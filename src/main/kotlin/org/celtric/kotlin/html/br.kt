@@ -1,3 +1,3 @@
 package org.celtric.kotlin.html
 
-fun br() = EmptyElement("br", true)
+fun br() = EmptyBlockElement("br")

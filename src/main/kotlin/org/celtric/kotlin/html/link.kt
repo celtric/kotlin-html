@@ -13,7 +13,7 @@ fun link(
     // Custom
     other: Attributes = emptyMap(),
     data: Attributes = emptyMap()
-) = EmptyElement("link", true, AllAttributes(mapOf(
+) = EmptyBlockElement("link", AllAttributes(mapOf(
     "crossorigin" to crossorigin,
     "href" to href,
     "media" to media,

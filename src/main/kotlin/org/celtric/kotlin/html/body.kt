@@ -13,7 +13,7 @@ fun body(
 
     // Content
     content: () -> Any
-) = Element("body", true, content(), AllAttributes(mapOf(
+) = BlockElement("body", content(), AllAttributes(mapOf(
     "class" to css,
     "lang" to lang
 ), other, data))

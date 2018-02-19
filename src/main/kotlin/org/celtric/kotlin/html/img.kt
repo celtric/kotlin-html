@@ -13,7 +13,7 @@ fun img(
     // Custom
     other: Attributes = emptyMap(),
     data: Attributes = emptyMap()
-) = EmptyElement("img", false, AllAttributes(mapOf(
+) = EmptyInlineElement("img", AllAttributes(mapOf(
     "src" to src,
     "alt" to alt,
     "class" to css,

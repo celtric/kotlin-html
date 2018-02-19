@@ -7,6 +7,6 @@ fun title(
 
     // Content
     content: () -> String
-) = Element("title", true, Text(content()), AllAttributes(emptyMap(), other, data))
+) = BlockElement("title", Text(content()), AllAttributes(emptyMap(), other, data))
 
 fun title(content: String) = title { content }

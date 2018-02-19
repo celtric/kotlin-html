@@ -7,7 +7,7 @@ fun head(
 
     // Content
     content: () -> Any
-) = Element("head", true, content(), AllAttributes(emptyMap(), other, data))
+) = BlockElement("head", content(), AllAttributes(emptyMap(), other, data))
 
 fun head(content: String) = head { content }
 fun head(content: Node) = head { content }

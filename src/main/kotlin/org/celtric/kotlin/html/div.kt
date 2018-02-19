@@ -11,7 +11,7 @@ fun div(
 
     // Content
     content: () -> Any
-) = Element("div", true, content(), AllAttributes(mapOf(
+) = BlockElement("div", content(), AllAttributes(mapOf(
     "class" to css,
     "id" to id
 ), other, data))

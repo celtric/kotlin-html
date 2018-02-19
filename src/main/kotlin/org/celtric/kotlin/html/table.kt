@@ -11,7 +11,7 @@ fun table(
 
     // Content
     content: () -> Any
-) = Element("table", true, content(), AllAttributes(mapOf(
+) = BlockElement("table", content(), AllAttributes(mapOf(
     "class" to css,
     "id" to id
 ), other, data))

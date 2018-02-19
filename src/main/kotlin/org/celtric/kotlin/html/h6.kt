@@ -11,7 +11,7 @@ fun h6(
 
     // Content
     content: () -> Any
-) = Element("h6", true, content(), AllAttributes(mapOf(
+) = BlockElement("h6", content(), AllAttributes(mapOf(
     "class" to css,
     "id" to id
 ), other, data))

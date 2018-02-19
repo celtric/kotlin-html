@@ -29,17 +29,18 @@ class DocumentType(val type: String) : Node() {
 }
 
 class Text(val content: String) : Node() {
-    override fun render(opt: Options) = content
+    override fun render(opt: Options) = opt.indent() + content
     override fun isBlock() = false
 }
 
 // Due to Kotlin's function overloading limitations, we are forced to use Any for content and check for valid types at
 // runtime.
 // @see https://discuss.kotlinlang.org/t/overloaded-function-with-lambda-parameter-of-different-return-types/6053
-class Element(val name: String, val _isBlock: Boolean, val content: Any, val attributes: AllAttributes) : Node() {
+sealed class Element(val name: String, val _isBlock: Boolean, val content: Any, val attributes: AllAttributes) : Node() {
 
     override fun render(opt: Options): String {
         val renderableContent: Node = when {
+            content == Unit -> Text("")
             content is String -> Text(content)
             content is Node -> content
             (content is List<*> && content.first() is Node) -> @Suppress("UNCHECKED_CAST") NodeList(content as List<Node>)
@@ -63,11 +64,17 @@ class Element(val name: String, val _isBlock: Boolean, val content: Any, val att
     override fun isBlock() = _isBlock
 }
 
-class EmptyElement(val name: String, val _isBlock: Boolean, val attributes: AllAttributes? = null) : Node() {
+class BlockElement(name: String, content: Any, attributes: AllAttributes) : Element(name, true, content, attributes)
+class InlineElement(name: String, content: Any, attributes: AllAttributes) : Element(name, false, content, attributes)
+
+sealed class EmptyElement(val name: String, val _isBlock: Boolean, val attributes: AllAttributes? = null) : Node() {
     override fun render(opt: Options) =
-            "${opt.indent()}<$name${attributes?.render()}>" + if (isBlock()) opt.lineSeparator else ""
+            "${opt.indent()}<$name${attributes?.render()?:""}>" + if (isBlock()) opt.lineSeparator else ""
     override fun isBlock() = _isBlock
 }
+
+class EmptyBlockElement(name: String, attributes: AllAttributes? = null) : EmptyElement(name, true, attributes)
+class EmptyInlineElement(name: String, attributes: AllAttributes? = null) : EmptyElement(name, false, attributes)
 
 //---[ Lists of nodes ]-----------------------------------------------------------------//
 
@@ -76,7 +83,10 @@ private class NodeList(val nodes: List<Node>) : Node() {
     override fun isBlock() = nodes.any { it.isBlock() }
 }
 
-fun List<Node>.render(opt: Options = Options()) = joinToString("") { it.render(opt) }
+fun List<Node>.render(opt: Options = Options()) = joinToString("") {
+    it.render(opt) + if (it is Text && any { it.isBlock() }) "\n" else ""
+}
+
 operator fun List<Node>.plus(text: String): List<Node> = plus(Text(text))
 // TODO: can the call to the overloaded plus operator be delegated without this casting hack?
 @Suppress("UNCHECKED_CAST")
@@ -86,11 +96,12 @@ operator fun List<Node>.plus(nodes: List<Node>): List<Node> = ((this as List<Any
 
 //---[ Attributes ]---------------------------------------------------------------------//
 
-typealias Attributes = Map<String, String?>
+typealias Attributes = Map<String, Any?>
 
 private fun Attributes.renderAttributes(prefix: String = "") =
-        filter { it.value != null }
-        .map { " $prefix${it.key}=\"${it.value}\"" }.joinToString("")
+        filter { it.value != null && it.value != false }
+        .map { Pair(it.key, if (it.value is Boolean) "" else "=\"${it.value}\"") }
+        .joinToString("") { (key, value) -> " " + prefix + key + value }
 
 class AllAttributes(val common: Attributes, val other: Attributes, val data: Attributes) {
     fun render() = common.renderAttributes() + other.renderAttributes()+ data.renderAttributes("data-")

@@ -11,7 +11,7 @@ fun section(
 
     // Content
     content: () -> Any
-) = Element("section", true, content(), AllAttributes(mapOf(
+) = BlockElement("section", content(), AllAttributes(mapOf(
     "class" to css,
     "id" to id
 ), other, data))

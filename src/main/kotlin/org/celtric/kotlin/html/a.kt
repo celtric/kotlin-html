@@ -19,7 +19,7 @@ fun a(
 
     // Content
     content: () -> Any
-) = Element("a", false, content(), AllAttributes(mapOf(
+) = InlineElement("a", content(), AllAttributes(mapOf(
     "href" to href,
     "rel" to rel,
     "target" to target,

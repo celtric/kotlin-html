@@ -11,7 +11,7 @@ fun header(
 
     // Content
     content: () -> Any
-) = Element("header", true, content(), AllAttributes(mapOf(
+) = BlockElement("header", content(), AllAttributes(mapOf(
     "class" to css,
     "id" to id
 ), other, data))

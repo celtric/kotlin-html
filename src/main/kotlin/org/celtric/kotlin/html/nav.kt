@@ -11,7 +11,7 @@ fun nav(
 
     // Content
     content: () -> Any
-) = Element("nav", true, content(), AllAttributes(mapOf(
+) = BlockElement("nav", content(), AllAttributes(mapOf(
     "class" to css,
     "id" to id
 ), other, data))

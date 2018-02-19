@@ -11,7 +11,7 @@ fun aside(
 
     // Content
     content: () -> Any
-) = Element("aside", true, content(), AllAttributes(mapOf(
+) = BlockElement("aside", content(), AllAttributes(mapOf(
     "class" to css,
     "id" to id
 ), other, data))

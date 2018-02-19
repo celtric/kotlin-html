@@ -11,7 +11,7 @@ fun tbody(
 
     // Content
     content: () -> Any
-) = Element("tbody", true, content(), AllAttributes(mapOf(
+) = BlockElement("tbody", content(), AllAttributes(mapOf(
     "class" to css,
     "id" to id
 ), other, data))

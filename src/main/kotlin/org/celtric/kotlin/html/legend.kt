@@ -2,7 +2,7 @@ package org.celtric.kotlin.html
 
 fun legend(
     // Global
-    css: String? = null,
+    classes: String? = null,
     id: String? = null,
 
     // Custom
@@ -12,7 +12,7 @@ fun legend(
     // Content
     content: () -> Any
 ) = BlockElement("legend", content(), AllAttributes(mapOf(
-    "class" to css,
+    "class" to classes,
     "id" to id
 ), other, data))
 

@@ -2,7 +2,7 @@ package org.celtric.kotlin.html
 
 fun wbr(
     // Global
-    css: String? = null,
+    classes: String? = null,
     id: String? = null,
     title: String? = null,
 
@@ -13,7 +13,7 @@ fun wbr(
     // Content
     content: () -> Any
 ) = InlineElement("wbr", content(), AllAttributes(mapOf(
-    "class" to css,
+    "class" to classes,
     "id" to id,
     "title" to title
 ), other, data))

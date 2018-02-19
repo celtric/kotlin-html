@@ -9,7 +9,7 @@ fun button(
     autofocus: Boolean = false,
 
     // Global
-    css: String? = null,
+    classes: String? = null,
     id: String? = null,
     title: String? = null,
 
@@ -25,7 +25,7 @@ fun button(
     "value" to value,
     "disabled" to disabled,
     "autofocus" to autofocus,
-    "class" to css,
+    "class" to classes,
     "id" to id,
     "title" to title
 ), other, data))

@@ -6,7 +6,7 @@ fun th(
     rowspan: Int? = null,
 
     // Global
-    css: String? = null,
+    classes: String? = null,
     id: String? = null,
     title: String? = null,
 
@@ -19,7 +19,7 @@ fun th(
 ) = BlockElement("th", content(), AllAttributes(mapOf(
     "colspan" to colspan,
     "rowspan" to rowspan,
-    "class" to css,
+    "class" to classes,
     "id" to id,
     "title" to title
 ), other, data))

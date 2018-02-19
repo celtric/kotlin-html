@@ -2,7 +2,7 @@ package org.celtric.kotlin.html
 
 fun aside(
     // Global
-    css: String? = null,
+    classes: String? = null,
     id: String? = null,
 
     // Custom
@@ -12,7 +12,7 @@ fun aside(
     // Content
     content: () -> Any
 ) = BlockElement("aside", content(), AllAttributes(mapOf(
-    "class" to css,
+    "class" to classes,
     "id" to id
 ), other, data))
 

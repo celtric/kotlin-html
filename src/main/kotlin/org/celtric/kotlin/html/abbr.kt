@@ -5,7 +5,7 @@ fun abbr(
     title: String,
 
     // Global
-    css: String? = null,
+    classes: String? = null,
     id: String? = null,
 
     // Custom
@@ -16,7 +16,7 @@ fun abbr(
     content: () -> Any
 ) = InlineElement("abbr", content(), AllAttributes(mapOf(
     "title" to title,
-    "class" to css,
+    "class" to classes,
     "id" to id
 ), other, data))
 

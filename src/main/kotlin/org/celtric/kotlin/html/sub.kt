@@ -2,7 +2,7 @@ package org.celtric.kotlin.html
 
 fun sub(
     // Global
-    css: String? = null,
+    classes: String? = null,
     id: String? = null,
     title: String? = null,
 
@@ -13,7 +13,7 @@ fun sub(
     // Content
     content: () -> Any
 ) = InlineElement("sub", content(), AllAttributes(mapOf(
-    "class" to css,
+    "class" to classes,
     "id" to id,
     "title" to title
 ), other, data))

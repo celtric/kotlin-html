@@ -80,7 +80,7 @@ Attributes are optional. If you wish to define them, you must use a block for th
 ```kotlin
 p("A paragraph") // Text-only element, cannot contain attributes
 p { "A paragraph" } // Equivalent to previous line
-p(css = "a-class") { "A paragraph" } // Same paragraph with "a-class" class
+p(classes = "a-class") { "A paragraph" } // Same paragraph with "a-class" class
 ```
 
 HTML
@@ -166,9 +166,9 @@ fun main(args : Array<String>) {
             link(href = "css/style.css", rel = "stylesheet")
         } +
         body {
-            div(css = "container") {
+            div(classes = "container") {
                 h1("A title") +
-                p(css = "introduction") {
+                p(classes = "introduction") {
                     "A paragraph"
                 } +
                 ul {

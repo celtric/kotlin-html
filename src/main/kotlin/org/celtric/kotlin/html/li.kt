@@ -5,7 +5,7 @@ fun li(
     value: String? = null,
 
     // Global
-    css: String? = null,
+    classes: String? = null,
     id: String? = null,
 
     // Custom
@@ -16,7 +16,7 @@ fun li(
     content: () -> Any
 ) = BlockElement("li", content(), AllAttributes(mapOf(
     "value" to value,
-    "class" to css,
+    "class" to classes,
     "id" to id
 ), other, data))
 

@@ -5,7 +5,7 @@ fun data(
     value: String,
 
     // Global
-    css: String? = null,
+    classes: String? = null,
     id: String? = null,
     title: String? = null,
 
@@ -17,7 +17,7 @@ fun data(
     content: () -> Any
 ) = InlineElement("data", content(), AllAttributes(mapOf(
     "value" to value,
-    "class" to css,
+    "class" to classes,
     "id" to id,
     "title" to title
 ), other, data))

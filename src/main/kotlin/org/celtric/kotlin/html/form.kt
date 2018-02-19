@@ -12,7 +12,7 @@ fun form(
     target: String? = null,
 
     // Global
-    css: String? = null,
+    classes: String? = null,
     id: String? = null,
 
     // Custom
@@ -30,6 +30,6 @@ fun form(
     "name" to name,
     "novalidate " to novalidate ,
     "target" to target,
-    "class" to css,
+    "class" to classes,
     "id" to id
 ), other, data))

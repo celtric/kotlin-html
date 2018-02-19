@@ -9,7 +9,7 @@ fun script(
     defer: Boolean = false,
 
     // Global
-    css: String? = null,
+    classes: String? = null,
     id: String? = null,
 
     // Custom
@@ -24,6 +24,6 @@ fun script(
     "async" to async,
     "crossorigin" to crossorigin,
     "defer" to defer,
-    "class" to css,
+    "class" to classes,
     "id" to id
 ), other, data))

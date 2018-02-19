@@ -2,7 +2,7 @@ package org.celtric.kotlin.html
 
 fun dl(
     // Global
-    css: String? = null,
+    classes: String? = null,
     id: String? = null,
 
     // Custom
@@ -12,7 +12,7 @@ fun dl(
     // Content
     content: () -> Any
 ) = BlockElement("dl", content(), AllAttributes(mapOf(
-    "class" to css,
+    "class" to classes,
     "id" to id
 ), other, data))
 

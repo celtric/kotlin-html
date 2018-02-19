@@ -6,7 +6,7 @@ fun output(
     `for`: String? = null,
 
     // Global
-    css: String? = null,
+    classes: String? = null,
     id: String? = null,
     title: String? = null,
 
@@ -19,7 +19,7 @@ fun output(
 ) = InlineElement("output", content(), AllAttributes(mapOf(
     "name" to name,
     "for" to `for`,
-    "class" to css,
+    "class" to classes,
     "id" to id,
     "title" to title
 ), other, data))

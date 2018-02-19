@@ -6,7 +6,7 @@ fun img(
     alt: String,
 
     // Global
-    css: String? = null,
+    classes: String? = null,
     id: String? = null,
     title: String? = null,
 
@@ -16,7 +16,7 @@ fun img(
 ) = EmptyInlineElement("img", AllAttributes(mapOf(
     "src" to src,
     "alt" to alt,
-    "class" to css,
+    "class" to classes,
     "id" to id,
     "title" to title
 ), other, data))

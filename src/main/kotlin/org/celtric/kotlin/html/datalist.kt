@@ -2,7 +2,7 @@ package org.celtric.kotlin.html
 
 fun datalist(
     // Global
-    css: String? = null,
+    classes: String? = null,
     id: String? = null,
 
     // Custom
@@ -12,7 +12,7 @@ fun datalist(
     // Content
     content: () -> Any
 ) = BlockElement("datalist", content(), AllAttributes(mapOf(
-    "class" to css,
+    "class" to classes,
     "id" to id
 ), other, data))
 

@@ -5,7 +5,7 @@ fun q(
     cite: String? = null,
 
     // Global
-    css: String? = null,
+    classes: String? = null,
     id: String? = null,
 
     // Custom
@@ -16,7 +16,7 @@ fun q(
     content: () -> Any
 ) = InlineElement("q", content(), AllAttributes(mapOf(
     "cite" to cite,
-    "class" to css,
+    "class" to classes,
     "id" to id
 ), other, data))
 

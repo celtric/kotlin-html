@@ -7,7 +7,7 @@ fun ol(
     reversed: Boolean = false,
 
     // Global
-    css: String? = null,
+    classes: String? = null,
     id: String? = null,
 
     // Custom
@@ -20,7 +20,7 @@ fun ol(
     "type" to type,
     "start" to start,
     "reversed" to reversed,
-    "class" to css,
+    "class" to classes,
     "id" to id
 ), other, data))
 

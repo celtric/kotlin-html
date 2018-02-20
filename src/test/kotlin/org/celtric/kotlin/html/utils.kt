@@ -19,3 +19,7 @@ fun Node.assertRendersMultiline(expected: String) {
 fun List<Node>.assertRendersMultiline(expected: String) {
     Assertions.assertEquals(expected.trimIndent() + "\n", render(testRenderingOptions))
 }
+
+fun List<Node>.assertRendersSameAs(other: List<Node>) {
+    Assertions.assertEquals(other.render(testRenderingOptions), render(testRenderingOptions))
+}

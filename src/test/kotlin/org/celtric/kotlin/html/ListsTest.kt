@@ -38,4 +38,13 @@ internal class ListsTest {
             </ul>
         """)
     }
+
+    @Test fun `the way lists are grouped when combined is irrelevant`() {
+        val elem = li("Element")
+        val reference = elem + elem + elem + elem
+
+        ((elem) + (elem + elem + elem)).assertRendersSameAs(reference)
+        ((elem + elem) + (elem + elem)).assertRendersSameAs(reference)
+        ((elem + elem + elem) + (elem)).assertRendersSameAs(reference)
+    }
 }

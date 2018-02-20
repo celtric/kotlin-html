@@ -88,11 +88,6 @@ fun List<Node>.render(opt: Options = Options()) = joinToString("") {
 }
 
 operator fun List<Node>.plus(text: String): List<Node> = plus(Text(text))
-// TODO: can the call to the overloaded plus operator be delegated without this casting hack?
-@Suppress("UNCHECKED_CAST")
-operator fun List<Node>.plus(node: Node): List<Node> = ((this as List<Any>) + node) as List<Node>
-@Suppress("UNCHECKED_CAST")
-operator fun List<Node>.plus(nodes: List<Node>): List<Node> = ((this as List<Any>) + nodes) as List<Node>
 
 //---[ Attributes ]---------------------------------------------------------------------//
 
@@ -104,5 +99,5 @@ private fun Attributes.renderAttributes(prefix: String = "") =
         .joinToString("") { (key, value) -> " " + prefix + key + value }
 
 class AllAttributes(val common: Attributes, val other: Attributes, val data: Attributes) {
-    fun render() = common.renderAttributes() + other.renderAttributes()+ data.renderAttributes("data-")
+    fun render() = common.renderAttributes() + other.renderAttributes() + data.renderAttributes("data-")
 }

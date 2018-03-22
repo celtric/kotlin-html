@@ -42,9 +42,10 @@ sealed class Element(val name: String, val _isBlock: Boolean, val content: Any, 
         val renderableContent: Node = when {
             content == Unit -> Text("")
             content is String -> Text(content)
+            content is Number -> Text(content.toString())
             content is Node -> content
             (content is List<*> && content.first() is Node) -> @Suppress("UNCHECKED_CAST") NodeList(content as List<Node>)
-            else -> throw HTMLException("Content must be String, Node or List<Node>, ${contentType(content)} given.")
+            else -> throw HTMLException("Content must be String, Number, Node or List<Node>, ${contentType(content)} given.")
         }
 
         val renderedContent =

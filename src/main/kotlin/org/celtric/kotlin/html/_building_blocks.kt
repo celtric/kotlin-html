@@ -42,9 +42,10 @@ sealed class Element(val name: String, val _isBlock: Boolean, val content: Any, 
         val renderableContent: Node = when {
             content == Unit -> Text("")
             content is String -> Text(content)
+            content is Number -> Text(content.toString())
             content is Node -> content
-            (content is List<*> && content.first() is Node) -> @Suppress("UNCHECKED_CAST") NodeList(content as List<Node>)
-            else -> throw HTMLException("Content must be String, Node or List<Node>, ${contentType(content)} given.")
+            (content is List<*> && (content.isEmpty() || content.first() is Node)) -> @Suppress("UNCHECKED_CAST") NodeList(content as List<Node>)
+            else -> throw HTMLException("Content must be String, Number, Node or List<Node>, ${contentType(content)} given.")
         }
 
         val renderedContent =
@@ -84,7 +85,7 @@ private class NodeList(val nodes: List<Node>) : Node() {
 }
 
 fun List<Node>.render(opt: Options = Options()) = joinToString("") {
-    it.render(opt) + if (it is Text && any { it.isBlock() }) "\n" else ""
+    it.render(opt) + if (!it.isBlock() && any { it.isBlock() }) "\n" else ""
 }
 
 operator fun List<Node>.plus(text: String): List<Node> = plus(Text(text))
@@ -96,7 +97,7 @@ typealias Attributes = Map<String, Any?>
 private fun Attributes.renderAttributes(prefix: String = "") =
         filter { it.value != null && it.value != false }
         .map { Pair(it.key, if (it.value is Boolean) "" else "=\"${it.value}\"") }
-        .joinToString("") { (key, value) -> " " + prefix + key + value }
+        .joinToString("") { " " + prefix + it.first + it.second }
 
 class AllAttributes(val common: Attributes, val other: Attributes, val data: Attributes) {
     fun render() = common.renderAttributes() + other.renderAttributes() + data.renderAttributes("data-")

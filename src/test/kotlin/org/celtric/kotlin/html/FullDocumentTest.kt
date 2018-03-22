@@ -21,7 +21,9 @@ internal class FullDocumentTest {
                     ul {
                         li(a("http://www.example.com/", "A link")) +
                         li(a("http://www.example.com/", "A second link"))
-                    }
+                    } +
+                    span { "Inline element"} +
+                    div { "Block element"}
                 }
             }
         }).assertRendersMultiline("""
@@ -41,6 +43,8 @@ internal class FullDocumentTest {
                             <li><a href="http://www.example.com/">A link</a></li>
                             <li><a href="http://www.example.com/">A second link</a></li>
                         </ul>
+                        <span>Inline element</span>
+                        <div>Block element</div>
                     </div>
                 </body>
             </html>

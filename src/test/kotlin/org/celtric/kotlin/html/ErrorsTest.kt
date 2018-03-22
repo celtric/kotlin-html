@@ -9,6 +9,6 @@ internal class ErrorsTest {
         val elementWithInvalidContent = span { listOf(listOf("Foo")) }
 
         assertThrows(HTMLException::class.java, { elementWithInvalidContent.render() })
-            .let { assertEquals("Content must be String, Node or List<Node>, SingletonList<SingletonList<String>> given.", it.message) }
+            .let { assertEquals("Content must be String, Number, Node or List<Node>, SingletonList<SingletonList<String>> given.", it.message) }
     }
 }

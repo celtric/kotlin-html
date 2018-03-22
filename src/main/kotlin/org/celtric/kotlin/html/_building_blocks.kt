@@ -85,7 +85,7 @@ private class NodeList(val nodes: List<Node>) : Node() {
 }
 
 fun List<Node>.render(opt: Options = Options()) = joinToString("") {
-    it.render(opt) + if (it is Text && any { it.isBlock() }) "\n" else ""
+    it.render(opt) + if (!it.isBlock() && any { it.isBlock() }) "\n" else ""
 }
 
 operator fun List<Node>.plus(text: String): List<Node> = plus(Text(text))
@@ -97,7 +97,7 @@ typealias Attributes = Map<String, Any?>
 private fun Attributes.renderAttributes(prefix: String = "") =
         filter { it.value != null && it.value != false }
         .map { Pair(it.key, if (it.value is Boolean) "" else "=\"${it.value}\"") }
-        .joinToString("") { (key, value) -> " " + prefix + key + value }
+        .joinToString("") { " " + prefix + it.first + it.second }
 
 class AllAttributes(val common: Attributes, val other: Attributes, val data: Attributes) {
     fun render() = common.renderAttributes() + other.renderAttributes() + data.renderAttributes("data-")

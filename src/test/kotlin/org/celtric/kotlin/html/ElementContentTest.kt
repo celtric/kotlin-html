@@ -10,4 +10,8 @@ internal class ElementContentTest {
         span { 1.0 }.assertRenders("<span>1.0</span>")
         span { 1.0f }.assertRenders("<span>1.0</span>")
     }
+
+    @Test fun `content can be an empty list`() {
+        span(emptyList()).assertRenders("<span></span>")
+    }
 }

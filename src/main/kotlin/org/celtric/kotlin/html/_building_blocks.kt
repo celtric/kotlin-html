@@ -44,7 +44,7 @@ sealed class Element(val name: String, val _isBlock: Boolean, val content: Any, 
             content is String -> Text(content)
             content is Number -> Text(content.toString())
             content is Node -> content
-            (content is List<*> && content.first() is Node) -> @Suppress("UNCHECKED_CAST") NodeList(content as List<Node>)
+            (content is List<*> && (content.isEmpty() || content.first() is Node)) -> @Suppress("UNCHECKED_CAST") NodeList(content as List<Node>)
             else -> throw HTMLException("Content must be String, Number, Node or List<Node>, ${contentType(content)} given.")
         }
 

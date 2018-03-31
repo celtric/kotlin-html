@@ -4,7 +4,7 @@
 
 # kotlin-html
 
-_kotlin-html_ is an experimental library to generate HTML in Kotlin.
+_kotlin-html_ is a library to generate HTML in Kotlin.
 
 This library is heavily inspired by [kotlinx.html](https://github.com/Kotlin/kotlinx.html), but with a strong emphasis on context-independent composability.
 

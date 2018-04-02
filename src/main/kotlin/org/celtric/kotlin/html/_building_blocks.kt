@@ -36,24 +36,26 @@ class Text(val content: String) : Node() {
 // Due to Kotlin's function overloading limitations, we are forced to use Any for content and check for valid types at
 // runtime.
 // @see https://discuss.kotlinlang.org/t/overloaded-function-with-lambda-parameter-of-different-return-types/6053
-sealed class Element(val name: String, val _isBlock: Boolean, val content: Any, val attributes: AllAttributes) : Node() {
+sealed class Element(val name: String, val _isBlock: Boolean, unvalidatedContent: Any, val attributes: AllAttributes) : Node() {
+
+    val content = when {
+        unvalidatedContent == Unit -> Text("")
+        unvalidatedContent is String -> Text(unvalidatedContent)
+        unvalidatedContent is Number -> Text(unvalidatedContent.toString())
+        unvalidatedContent is Node -> unvalidatedContent
+        (unvalidatedContent is List<*> && (unvalidatedContent.isEmpty() || unvalidatedContent.first() is Node)) -> @Suppress("UNCHECKED_CAST") NodeList(unvalidatedContent as List<Node>)
+        else -> throw HTMLException("Content must be String, Number, Node or List<Node>, ${contentType(unvalidatedContent)} given.")
+    }
 
     override fun render(opt: Options): String {
-        val renderableContent: Node = when {
-            content == Unit -> Text("")
-            content is String -> Text(content)
-            content is Number -> Text(content.toString())
-            content is Node -> content
-            (content is List<*> && (content.isEmpty() || content.first() is Node)) -> @Suppress("UNCHECKED_CAST") NodeList(content as List<Node>)
-            else -> throw HTMLException("Content must be String, Number, Node or List<Node>, ${contentType(content)} given.")
-        }
-
         val renderedContent =
-                if (renderableContent.isBlock()) "${opt.lineSeparator}${renderableContent.render(opt.nextLevel())}${opt.indent()}"
-                else renderableContent.render()
+                if (content.isBlock()) "${opt.lineSeparator}${content.render(opt.nextLevel())}${opt.indent()}"
+                else content.render()
 
         return "${opt.indent()}<$name${attributes.render()}>$renderedContent</$name>" + if (isBlock()) opt.lineSeparator else ""
     }
+
+    override fun isBlock() = _isBlock
 
     private fun contentType(content: Any): String = when {
         content !is Collection<*> -> content.javaClass.simpleName
@@ -61,8 +63,6 @@ sealed class Element(val name: String, val _isBlock: Boolean, val content: Any, 
         content.first() is Collection<*> -> "${content.javaClass.simpleName}<${contentType(content.first()!!)}>"
         else -> "${content.javaClass.simpleName}<${content.first()!!.javaClass.simpleName}>"
     }
-
-    override fun isBlock() = _isBlock
 }
 
 class BlockElement(name: String, content: Any, attributes: AllAttributes) : Element(name, true, content, attributes)

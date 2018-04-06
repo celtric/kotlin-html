@@ -95,7 +95,7 @@ operator fun List<Node>.plus(text: String): List<Node> = plus(Text(text))
 typealias Attributes = Map<String, Any?>
 
 private fun Attributes.renderAttributes(prefix: String = "") =
-        filter { it.value != null && it.value != false }
+        filter { it.value != null && it.value != false && it.value != "" }
         .map { Pair(it.key, if (it.value is Boolean) "" else "=\"${it.value}\"") }
         .joinToString("") { " " + prefix + it.first + it.second }
 

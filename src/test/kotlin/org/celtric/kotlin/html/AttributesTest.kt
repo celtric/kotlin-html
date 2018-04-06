@@ -29,4 +29,9 @@ internal class AttributesTest {
         span(other = mapOf("foo" to true)) { "Content" }
             .assertRenders("<span foo>Content</span>")
     }
+
+    @Test fun empty_attributes() {
+        span(classes = "", other = mapOf(), data = mapOf()) {}
+            .assertRenders("<span></span>")
+    }
 }
